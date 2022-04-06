@@ -1,0 +1,29 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "homedata",
+    "database": "homedata-pg",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "protocol": "postgres",
+    "dialectOptions": {}
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "protocol": "postgres",
+    "dialectOptions": {}
+  },
+  "production": {
+    "username": "homedata",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "protocol": "postgres",
+    "dialectOptions": {}
+  }
+}
