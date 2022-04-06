@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'location',
+      underscored: true,
     },
   );
 

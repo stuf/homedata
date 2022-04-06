@@ -1,30 +1,31 @@
 'use strict';
+
+/** @type {import("../global").Meta.UpDown} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('dataSources', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
+      address: {
         primaryKey: true,
-        type: Sequelize.INTEGER
+        unique: true,
+        type: Sequelize.MACADDR,
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       location: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('dataSources');
-  }
+  },
 };

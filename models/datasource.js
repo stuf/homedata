@@ -1,7 +1,13 @@
 'use strict';
 
-const { Model } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 
+/**
+ *
+ * @param {*} sequelize
+ * @param {DataTypes} DataTypes
+ * @returns
+ */
 module.exports = (sequelize, DataTypes) => {
   class DataSource extends Model {
     static associate(models) {
@@ -13,10 +19,12 @@ module.exports = (sequelize, DataTypes) => {
     {
       name: DataTypes.STRING,
       location: DataTypes.INTEGER,
+      address: DataTypes.MACADDR,
     },
     {
       sequelize,
       modelName: 'dataSource',
+      underscored: true,
     },
   );
 
