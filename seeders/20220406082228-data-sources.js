@@ -6,7 +6,7 @@ const date = () => new Date();
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      'dataSources',
+      'data_sources',
       [
         {
           address: 'C4:B6:95:52:50:4B',
@@ -45,6 +45,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('dataSources', null, {});
+    await queryInterface.bulkDelete('data_sources', null, {});
   },
 };
