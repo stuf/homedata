@@ -18,16 +18,14 @@ function main() {
     {},
   );
 
-  const insert$ = grouped$
-    .throttle(settings.throttleDuration)
-    .flatMap(o => {
-      const xs = Object.values(o);
+  const insert$ = grouped$.throttle(settings.throttleDuration).flatMap(o => {
+    const xs = Object.values(o);
 
-      return fromPromise(Measurement.bulkCreate(xs));
-    })
-    .log();
+    return fromPromise(Measurement.bulkCreate(xs));
+  });
 
-  // grouped$.throttle(settings.throttleDuration).onValue(() => {});
+  // Finally, activate pipeline to make the magic happen
+  insert$.onValue(() => {});
 }
 
 module.exports = {
