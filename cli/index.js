@@ -25,7 +25,14 @@ function main() {
   });
 
   // Finally, activate pipeline to make the magic happen
-  insert$.onValue(() => {});
+  insert$.observe({
+    error: err => {
+      console.error('Error:', err);
+    },
+    value: v => {
+      console.log('got %s values', v.length);
+    },
+  });
 }
 
 module.exports = {
