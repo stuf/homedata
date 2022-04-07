@@ -20,7 +20,7 @@
   "production": {
     "username": "homedata",
     "password": null,
-    "database": "database_production",
+    "database": "homedata-pg",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "protocol": "postgres",
