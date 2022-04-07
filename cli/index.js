@@ -1,8 +1,10 @@
+const { constant, fromPromise } = require('kefir');
 const L = require('partial.lenses');
 
 const { dataFormat, bufAsJson } = require('./data');
 const { subscribe } = require('./mqtt');
 const settings = require('./settings');
+const { Measurement } = require('./models');
 
 function main() {
   const json$ = subscribe('etm12/sensor/ruuvitag/#').map(
@@ -16,9 +18,16 @@ function main() {
     {},
   );
 
-  grouped$
+  const insert$ = grouped$
     .throttle(settings.throttleDuration)
-    .onValue(v => console.clear() || console.table(v));
+    .flatMap(o => {
+      const xs = Object.values(o);
+
+      return fromPromise(Measurement.bulkCreate(xs));
+    })
+    .log();
+
+  // grouped$.throttle(settings.throttleDuration).onValue(() => {});
 }
 
 module.exports = {

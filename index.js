@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+require('dotenv').config({ debug: true });
+
 require('./cli').main();
 
 // const L = require('partial.lenses');

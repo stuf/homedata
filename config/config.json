@@ -21,7 +21,7 @@
     "username": "homedata",
     "password": null,
     "database": "homedata-pg",
-    "host": "127.0.0.1",
+    "host": "10.0.1.188",
     "dialect": "postgres",
     "protocol": "postgres",
     "dialectOptions": {}

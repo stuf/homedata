@@ -7,6 +7,7 @@
     "cli": "node index.js"
   },
   "dependencies": {
+    "dotenv": "^16.0.0",
     "kefir": "^3.8.8",
     "kefir.atom": "^5.5.2",
     "mqtt": "^4.3.7",
@@ -18,6 +19,7 @@
     "yargs": "^17.4.0"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/kefir": "^3.8.7",
     "@types/sequelize": "^4.28.11",
     "@types/yargs": "^17.0.10",
