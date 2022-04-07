@@ -4,12 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "kefir": "^3.8.8",
+    "kefir.atom": "^5.5.2",
+    "mqtt": "^4.3.7",
+    "partial.lenses": "^14.17.0",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.18.0",
     "sequelize-cli": "^6.4.1"
   },
   "devDependencies": {
+    "@types/kefir": "^3.8.7",
     "@types/sequelize": "^4.28.11",
     "prettier": "^2.6.2"
   }
