@@ -3,7 +3,7 @@
 /** @type {import("../global").Meta.UpDown} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('dataSources', {
+    await queryInterface.createTable('data_sources', {
       address: {
         primaryKey: true,
         unique: true,
@@ -26,6 +26,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('dataSources');
+    await queryInterface.dropTable('data_sources');
   },
 };

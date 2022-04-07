@@ -1,5 +1,6 @@
 'use strict';
 
+/** @type {import("../global").Meta.UpDown} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('locations', {
@@ -15,10 +16,12 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        key: 'created_at',
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        key: 'updated_at',
       },
     });
   },

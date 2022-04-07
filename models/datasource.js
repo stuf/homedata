@@ -3,7 +3,6 @@
 const { Model, DataTypes } = require('sequelize');
 
 /**
- *
  * @param {*} sequelize
  * @param {DataTypes} DataTypes
  * @returns
@@ -11,7 +10,9 @@ const { Model, DataTypes } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class DataSource extends Model {
     static associate(models) {
-      this.hasOne(models.Location);
+      this.hasOne(models.location, {
+        as: 'location_id',
+      });
     }
   }
 
@@ -23,8 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'dataSource',
-      underscored: true,
+      modelName: 'data_source',
     },
   );
 

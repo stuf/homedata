@@ -1,18 +1,24 @@
 'use strict';
+
 const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
-  class measurement extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+  class Measurement extends Model {
     static associate(models) {
-      this.hasOne(models.DataSource);
+      this.hasOne(models.data_source);
     }
   }
-  measurement.init(
+  Measurement.init(
     {
+      id: {
+        autoIncrement: true,
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+      },
+      time: {
+        type: DataTypes.DATE,
+        primaryKey: true,
+      },
       source: DataTypes.MACADDR,
       sequenceNumber: DataTypes.INTEGER,
       temperature: DataTypes.DECIMAL,
@@ -28,8 +34,12 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'measurement',
-      underscored: true,
+      indexes: [
+        { fields: ['time'] },
+        { unique: true, fields: ['id'] },
+        { name: 'source_per_sequence', fields: ['source', 'sequenceNumber'] },
+      ],
     },
   );
-  return measurement;
+  return Measurement;
 };
